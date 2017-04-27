@@ -2,9 +2,13 @@
   "name": "wx-request",
   "version": "1.0.0",
   "description": "封装微信小程序的异步请求",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rollup -c -w",
+    "pro": "NODE_ENV=production rollup -c",
+    "build": "npm run pro",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -20,5 +24,18 @@
   "bugs": {
     "url": "https://github.com/JoeZheng2015/wx-request/issues"
   },
-  "homepage": "https://github.com/JoeZheng2015/wx-request#readme"
+  "homepage": "https://github.com/JoeZheng2015/wx-request#readme",
+  "devDependencies": {
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-latest": "^6.24.1",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^1.0.2",
+    "rollup-watch": "^3.2.2"
+  },
+  "dependencies": {
+    "es6-promise": "^4.1.0"
+  }
 }
