@@ -1,5 +1,9 @@
 import Promise from 'es6-promise';
 
+const defaultOptions = {
+  requestFunc: wx.request,
+};
+
 const request = (method = 'GET') => (url, data = {}, options = {}) => new Promise((resolve, reject) => {
   const obj = Object.assign({}, options, {
     url,
@@ -13,7 +17,14 @@ const request = (method = 'GET') => (url, data = {}, options = {}) => new Promis
     },
   });
 
-  wx.request(obj);
+  defaultOptions.requestFunc(obj);
 });
 
-export default request;
+const setRequestFunc = (requestFunc) => {
+  defaultOptions.requestFunc = requestFunc;
+};
+
+export default {
+  request,
+  setRequestFunc,
+};

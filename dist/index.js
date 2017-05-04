@@ -1181,6 +1181,10 @@ var es6Promise = createCommonjsModule(function (module, exports) {
   //# sourceMappingURL=es6-promise.map
 });
 
+var defaultOptions = {
+  requestFunc: wx.request
+};
+
 var request = function request() {
   var method = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'GET';
   return function (url) {
@@ -1199,11 +1203,20 @@ var request = function request() {
         }
       });
 
-      wx.request(obj);
+      defaultOptions.requestFunc(obj);
     });
   };
 };
 
-return request;
+var setRequestFunc = function setRequestFunc(requestFunc) {
+  defaultOptions.requestFunc = requestFunc;
+};
+
+var index = {
+  request: request,
+  setRequestFunc: setRequestFunc
+};
+
+return index;
 
 })));
