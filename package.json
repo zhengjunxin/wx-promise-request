@@ -8,7 +8,8 @@
     "dev": "rollup -c -w",
     "pro": "NODE_ENV=production rollup -c",
     "build": "npm run pro",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "postinstall": "cp pre-commit .git/hooks/pre-commit"
   },
   "repository": {
     "type": "git",
