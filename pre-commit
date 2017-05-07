@@ -9,6 +9,8 @@ CHANGED_ASSETS="$(git diff --cached --name-only --diff-filter=ACM 2>/dev/null | 
 # from http://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html
 if [ -n "${CHANGED_ASSETS}" ]; then
     node_modules/.bin/eslint ${CHANGED_ASSETS}
+
+    # $? is the exit status of the last excuted command
     exit $?
 else
     exit 0
