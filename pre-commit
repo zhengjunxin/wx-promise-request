@@ -5,6 +5,8 @@
 # a better solution: only lint the JavaScript files of that commit(except deleted files).
 CHANGED_ASSETS="$(git diff --cached --name-only --diff-filter=ACM 2>/dev/null | grep '.js$' | xargs)"
 
+# -n string will return true when string is non-zero
+# from http://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html
 if [ -n "${CHANGED_ASSETS}" ]; then
     node_modules/.bin/eslint ${CHANGED_ASSETS}
     exit $?
