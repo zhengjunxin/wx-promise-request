@@ -1,8 +1,8 @@
-# wx-promise-request
-微信小程序的异步请求
-
 ![](https://img.shields.io/badge/build-passing-44cb11.svg)
 ![](https://img.shields.io/badge/platform-Wechat-44cb11.svg)
+
+# wx-promise-request
+wx-promise-request 是对微信小程序 wx.request 的封装，使其支持 Promise
 
 ## 原因
 微信小程序的原生 `wx.request` 方法不支持 Promise
@@ -31,3 +31,6 @@ request('GET')(url, data, options)
   .then(res => console.log(res))
   .catch(error => console.log(error));
 ```
+
+## License
+MIT
