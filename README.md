@@ -32,5 +32,23 @@ request('GET')(url, data, options)
   .catch(error => console.log(error));
 ```
 
+## API
+setConfig(object)
+
+通过 setConfig 配置 wx-promise-request，如：使用 qcloud 提供的 request 方法；使用其他 Promise 库等等
+``` javascript
+import {request, setConfig} from './wx-promise-request';
+import qcloud from './vendor/qcloud-weapp-client-sdk/index';
+import Promise from 'bluebird';
+
+setConfig({
+    request: qcloud.request,
+    Promise,
+})
+request('GET')(url)
+  .then(res => console.log(res))
+  .catch(error => console.log(error));
+```
+
 ## License
 MIT
