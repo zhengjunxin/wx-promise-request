@@ -5,20 +5,15 @@ let defaultConfig = {
   Promise,
 };
 
-const request = (method = 'GET') => (url, data = {}, options = {}) => new defaultConfig.Promise((resolve, reject) => {
-  const obj = Object.assign({}, options, {
-    url,
-    data,
-    method,
+const request = object => new defaultConfig.Promise((resolve, reject) => {
+  defaultConfig.request(Object.assign({}, object, {
     success(res) {
-      resolve(res.data);
+      resolve(res);
     },
     fail(err) {
       reject(err);
     },
-  });
-
-  defaultConfig.request(obj);
+  }));
 });
 
 const setConfig = (config) => {
