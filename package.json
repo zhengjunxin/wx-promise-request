@@ -41,6 +41,7 @@
     "rollup-watch": "^3.2.2"
   },
   "dependencies": {
+    "async": "^2.4.0",
     "es6-promise": "^4.1.0"
   }
 }
