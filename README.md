@@ -17,19 +17,18 @@ npm install wx-promise-request
 ``` javascript
 import {request} from './wx-promise-request';
 
-const url = 'test.php';
-const data = {
-  x: '',
-  y: '',
-};
-const options = {
-    header: {
-        'content-type': 'application/json',
-    }
-};
-request('GET')(url, data, options)
-  .then(res => console.log(res))
-  .catch(error => console.log(error));
+request({
+  url: 'test.php',
+  data: {
+    x: '',
+    y: '',
+  },
+  header: {
+    'content-type': 'application/json',
+  },
+})
+.then(res => console.log(res))
+.catch(error => console.error(error))
 ```
 
 ## API
@@ -45,9 +44,11 @@ setConfig({
     request: qcloud.request,
     Promise,
 })
-request('GET')(url)
-  .then(res => console.log(res))
-  .catch(error => console.log(error));
+request({
+  url: 'test.php',
+})
+.then(res => console.log(res))
+.catch(error => console.log(error));
 ```
 
 ## License
