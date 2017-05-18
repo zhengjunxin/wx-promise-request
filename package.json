@@ -1,6 +1,6 @@
 {
   "name": "wx-promise-request",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "封装微信小程序的异步请求",
   "main": "dist/index.js",
   "scripts": {
