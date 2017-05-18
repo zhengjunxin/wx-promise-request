@@ -9,12 +9,8 @@ let defaultConfig = {
 
 const request = object => new defaultConfig.Promise((resolve, reject) => {
   defaultConfig.request(Object.assign({}, object, {
-    success(res) {
-      resolve(res);
-    },
-    fail(err) {
-      reject(err);
-    },
+    success: resolve,
+    fail: reject,
   }));
 });
 
