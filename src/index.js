@@ -7,28 +7,24 @@ let defaultConfig = {
   maxRequest: 10,
 };
 
+const q = queue((task, callback) => task(callback), defaultConfig.maxRequest);
+
 const request = object => new defaultConfig.Promise((resolve, reject) => {
-  defaultConfig.request(Object.assign({}, object, {
-    success: resolve,
-    fail: reject,
-  }));
+  q.push((callback) => {
+    defaultConfig.request(Object.assign({}, object, {
+      success: resolve,
+      fail: reject,
+      complete: callback,
+    }));
+  });
 });
 
 const setConfig = (config) => {
   defaultConfig = Object.assign({}, defaultConfig, config);
 };
 
-const q = queue((task, callback) => {
-  task()
-    .then(callback);
-}, defaultConfig.maxRequest);
-
-const queueRequest = object => new defaultConfig.Promise((resolve, reject) => {
-  q.push(() => request(object).then(resolve, reject));
-});
-
 export default {
-  request: queueRequest,
+  request,
   setConfig,
   Promise,
 };
