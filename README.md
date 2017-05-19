@@ -9,10 +9,7 @@ wx-promise-request 是对微信小程序 `wx.request` 方法的异步封装。
 - 管理请求队列，解决 request 最大并发数超过 10 会报错的问题。
 
 ## 下载
-``` bash
-npm install wx-promise-request
-```
-然后拷贝 dist/index.js 文件到你的小程序项目中。
+由于小程序不支持 node_modules，所以直接下载 [index.js](https://joezheng2015.github.io/wx-promise-request/dist/index.js) 文件即可
 
 ## 使用
 ``` javascript
