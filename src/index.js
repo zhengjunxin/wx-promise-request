@@ -4,10 +4,10 @@ import queue from 'async/queue';
 let defaultConfig = {
   request: wx.request,
   Promise,
-  maxRequest: 10,
+  concurrency: 10,
 };
 
-const q = queue((task, callback) => task(callback), defaultConfig.maxRequest);
+const q = queue((task, callback) => task(callback), defaultConfig.concurrency);
 
 const request = object => new defaultConfig.Promise((resolve, reject) => {
   q.push((callback) => {
@@ -20,7 +20,12 @@ const request = object => new defaultConfig.Promise((resolve, reject) => {
 });
 
 const setConfig = (config) => {
+  const hasConcurrencyChange = config.concurrency !== defaultConfig.concurrency;
+
   defaultConfig = Object.assign({}, defaultConfig, config);
+  if (hasConcurrencyChange) {
+    q.concurrency = defaultConfig.concurrency;
+  }
 };
 
 export default {

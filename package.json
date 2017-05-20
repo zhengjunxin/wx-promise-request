@@ -1,7 +1,7 @@
 {
   "name": "wx-promise-request",
-  "version": "2.0.1",
-  "description": "封装微信小程序的异步请求",
+  "version": "2.1.1",
+  "description": "微信小程序 `wx.request` 方法的不支持 Promise 和并发数问题的解决方案",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
