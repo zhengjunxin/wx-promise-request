@@ -32,10 +32,13 @@ request({
 ## API
 setConfig(object)
 
-可以通过 setConfig 配置 wx-promise-request 如：
-- 使用 qcloud 提供的 request 方法
-- 使用其他 Promise 库
-- 自定义并发数
+可以通过 setConfig 配置 wx-promise-request 的行为。
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -- | -- | -- | -- |
+| request | 发起网络请求的函数 | Function | wx.request |
+| Promise | Promise 函数 | Function | [es6-promise](https://github.com/stefanpenner/es6-promise) |
+| concurrency | 最大并发数 | number | 10 |
 
 ``` javascript
 import {request, setConfig} from './wx-promise-request';
