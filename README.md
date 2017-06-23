@@ -30,7 +30,7 @@ request({
 ```
 
 ## API
-setConfig(object)
+### `setConfig(object)`
 
 可以通过 setConfig 配置 wx-promise-request 的行为。
 
@@ -45,11 +45,13 @@ import {request, setConfig} from './wx-promise-request';
 import qcloud from './vendor/qcloud-weapp-client-sdk/index';
 import Promise from 'bluebird';
 
+// 根据自身需求，来定制 request
 setConfig({
-    request: qcloud.request,
-    Promise,
-    concurrency: 5,
+    request: qcloud.request, // 使用 qcloud 提供的请求方法
+    Promise, // 使用 bluebird 作为 Promise
+    concurrency: 5, // 限制最大并发数为 5
 })
+
 request({
   url: 'test.php',
 })
