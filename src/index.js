@@ -28,7 +28,7 @@ const setConfig = (config) => {
   }
 };
 
-export default {
+export {
   request,
   setConfig,
   Promise,

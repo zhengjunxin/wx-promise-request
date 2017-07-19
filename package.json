@@ -1,6 +1,6 @@
 {
   "name": "wx-promise-request",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "微信小程序 `wx.request` 方法的不支持 Promise 和并发数问题的解决方案",
   "main": "dist/index.js",
   "scripts": {
