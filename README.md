@@ -12,7 +12,12 @@ wx-promise-request 是微信小程序 `wx.request` 方法的不支持 Promise �
 
 ## 下载
 
-由于小程序不支持 npm，所以直接右键保存 [index.js](https://zhengjunxin.github.io/wx-promise-request/dist/index.js) 文件即可。
+可以使用 npm 下载
+
+```bash
+$ npm i wx-promise-request
+```
+也可以直接右键保存 [index.js](https://zhengjunxin.github.io/wx-promise-request/dist/index.js) 文件。
 
 ## 使用
 
